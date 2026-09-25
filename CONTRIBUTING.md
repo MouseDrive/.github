@@ -47,6 +47,8 @@ The README's *Project layout* section explains what lives where.
 
 ## Code guidelines
 
+Source paths below are relative to `MouseDrive/src/` in the [MouseDrive repository](https://github.com/MouseDrive/MouseDrive).
+
 - Format with `rustfmt`; clippy must pass with `-D warnings` in both feature sets.
 - No `unwrap()` / `expect()` outside tests. Handle the error and tell the user what happened and what to do; MouseDrive has no silent fallbacks.
 - Every `unsafe` block needs a `// SAFETY:` comment that states why it is sound.

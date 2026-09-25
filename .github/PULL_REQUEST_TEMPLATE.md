@@ -9,5 +9,5 @@
 ## Checklist
 
 - [ ] `cargo fmt --check` and both clippy commands from [CONTRIBUTING](https://github.com/MouseDrive/.github/blob/main/CONTRIBUTING.md#building) pass
-- [ ] New user-visible text is in both `lang/en.rs` and `lang/tr.rs`
+- [ ] New user-visible text is in both `MouseDrive/src/lang/en.rs` and `MouseDrive/src/lang/tr.rs`
 - [ ] Every commit is signed off (`git commit -s`)
