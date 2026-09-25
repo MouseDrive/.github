@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Question or setup help
+    url: https://github.com/MouseDrive/MouseDrive/discussions/categories/q-a
+    about: Ask how to set up MouseDrive or a game.
+  - name: Feature idea
+    url: https://github.com/MouseDrive/MouseDrive/discussions/categories/ideas
+    about: Suggest and discuss new features.
+  - name: Security vulnerability
+    url: https://github.com/MouseDrive/MouseDrive/security/advisories/new
+    about: Report security issues privately, not in a public issue.

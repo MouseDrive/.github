@@ -1,0 +1,80 @@
+name: Bug report
+description: Something does not work as described.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting! The **Setup** window in MouseDrive checks every requirement, and the README has a [Troubleshooting](https://github.com/MouseDrive/MouseDrive#troubleshooting) section. For questions, use [Discussions](https://github.com/MouseDrive/MouseDrive/discussions/categories/q-a). English or Turkish is fine.
+  - type: input
+    id: version
+    attributes:
+      label: MouseDrive version
+      description: Shown in the window title.
+      placeholder: v0.6.0
+    validations:
+      required: true
+  - type: input
+    id: vjoy
+    attributes:
+      label: vJoy version
+      placeholder: 2.2.2.0
+    validations:
+      required: true
+  - type: dropdown
+    id: windows
+    attributes:
+      label: Windows version
+      options:
+        - Windows 11
+        - Windows 10
+    validations:
+      required: true
+  - type: input
+    id: game
+    attributes:
+      label: Game
+      description: Which game shows the problem? Leave empty if it is not game-specific.
+      placeholder: ACC, iRacing, LMU, ...
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Diagnostics
+      description: Click **Copy diagnostics** (bottom right of the main window) and paste the result here.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: log
+    attributes:
+      label: Log (optional)
+      description: >-
+        Relevant lines from `mousedrive.log`, in `%APPDATA%\MouseDrive\`
+        (or next to the exe in portable mode).
+      render: text
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I am using the latest release.
+          required: true
+        - label: I searched the existing issues.
+          required: true

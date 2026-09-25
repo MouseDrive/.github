@@ -1,0 +1,22 @@
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The **Setup** window and the README's [In-game settings](https://github.com/MouseDrive/MouseDrive#in-game-settings) answer the most common questions.
+  - type: textarea
+    id: question
+    attributes:
+      label: Question
+    validations:
+      required: true
+  - type: input
+    id: setup
+    attributes:
+      label: MouseDrive version and game
+      placeholder: v0.6.0, Assetto Corsa Competizione
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Diagnostics (optional)
+      description: Click **Copy diagnostics** in the main window and paste the result.
+      render: text
