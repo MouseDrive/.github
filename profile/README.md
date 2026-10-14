@@ -6,7 +6,7 @@
 </p>
 
 <p align="center">
-  Mouse steering for racing simulators on Windows: mouse and keyboard in, a virtual wheel and pedals out through vJoy.
+  Mouse steering for racing simulators on Windows and Linux: mouse and keyboard in, a virtual wheel and pedals out through vJoy on Windows and uinput on Linux.
 </p>
 
 <p align="center">
