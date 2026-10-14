@@ -1,7 +1,7 @@
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/MouseDrive/MouseDrive/main/MouseDrive/image/logo-dark.png">
-    <img src="https://raw.githubusercontent.com/MouseDrive/MouseDrive/main/MouseDrive/image/logo-light.png" alt="MouseDrive" width="334">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/MouseDrive/.github/main/profile/logo-dark.png">
+    <img src="https://raw.githubusercontent.com/MouseDrive/.github/main/profile/logo-light.png" alt="MouseDrive" width="334">
   </picture>
 </p>
 
