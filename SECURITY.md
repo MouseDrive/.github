@@ -19,7 +19,7 @@ Include the MouseDrive version, the operating system, the steps to reproduce and
 
 Of particular interest:
 
-- The auto-updater on both systems: release lookup (including the HTTPS proxy settings and, on Linux, the system certificates), download, SHA-256 and minisign verification, the test run, self-replacement and rollback, and leaving package-manager installs alone.
+- The auto-updater on both systems: release lookup (including the HTTPS proxy settings and, on Linux, the system certificates), download, SHA-256 verification, the test run, self-replacement and rollback, and leaving package-manager installs alone.
 - Windows: loading `vJoyInterface.dll` (search order, version matching).
 - Linux: the udev rules and setup commands (`70-mousedrive.rules`, the optional `71-mousedrive-keyboard.rules`, the Setup window, the packages and the README). Their `uaccess` tag gives every program in the active local session access to `/dev/uinput` and to mice, and with the keyboard rule to every keystroke; a rule or command that grants more than the README describes is in scope.
 - Linux: the virtual wheel on `/dev/uinput` and reading mice and keyboards through evdev.
