@@ -22,28 +22,33 @@ The public repository holds the source code every release is built from. Develop
 What this means for you:
 
 - Pull requests are reviewed and merged here as usual. The maintainer then carries the change over to the development branch, with you as the author, so later exports keep it.
-- The internal tests are not public. Please describe in your pull request how you tested the change (game, vJoy version, steps).
+- The internal tests are not public. Please describe in your pull request how you tested the change: operating system, game and steps, plus the vJoy version on Windows or the distribution and session (X11 or Wayland) on Linux.
 - Please do not edit `CHANGELOG.md`; the maintainer writes the entries when preparing a release.
 
 ## Building
 
-Requirements: Windows 10/11, the stable [Rust](https://rustup.rs/) toolchain (MSVC) and, to run it, the [vJoy driver](https://github.com/BrunnerInnovation/vJoy).
+`rust-toolchain.toml` pins the [Rust](https://rustup.rs/) toolchain; rustup installs it on the first `cargo` call.
 
-```powershell
+- **Windows:** Windows 10/11 with the MSVC toolchain. To run MouseDrive you need the [vJoy driver](https://github.com/BrunnerInnovation/vJoy).
+- **Linux:** x86-64. To run MouseDrive you need glibc 2.35 or newer, an X11 or Wayland desktop session, the `uinput` module and the one-time [Linux setup](https://github.com/MouseDrive/MouseDrive#linux). Run it as your normal user, never with `sudo`.
+
+The commands are the same on both systems:
+
+```sh
 cargo build --release --manifest-path MouseDrive/Cargo.toml
 # without the auto-updater (no network code)
 cargo build --release --manifest-path MouseDrive/Cargo.toml --no-default-features
 ```
 
-Before opening a pull request, run the checks CI runs:
+Before opening a pull request, run the checks CI runs on Windows and Linux:
 
-```powershell
+```sh
 cargo fmt --manifest-path MouseDrive/Cargo.toml --check
-cargo clippy --manifest-path MouseDrive/Cargo.toml --all-targets --all-features -- -D warnings
-cargo clippy --manifest-path MouseDrive/Cargo.toml --all-targets --no-default-features -- -D warnings
+cargo clippy --locked --manifest-path MouseDrive/Cargo.toml --all-targets --all-features -- -D warnings
+cargo clippy --locked --manifest-path MouseDrive/Cargo.toml --all-targets --no-default-features -- -D warnings
 ```
 
-The README's *Project layout* section explains what lives where.
+On Linux, CI also runs `cargo deny` and checks the files in `packaging/`; the README's *Build* section lists those commands. The README's *Project layout* section explains what lives where.
 
 ## Code guidelines
 
@@ -52,7 +57,7 @@ Source paths below are relative to `MouseDrive/src/` in the [MouseDrive reposito
 - Format with `rustfmt`; clippy must pass with `-D warnings` in both feature sets.
 - No `unwrap()` / `expect()` outside tests. Handle the error and tell the user what happened and what to do; MouseDrive has no silent fallbacks.
 - Every `unsafe` block needs a `// SAFETY:` comment that states why it is sound.
-- The driving logic (`logic.rs`, `logic/`) stays pure: no Windows API calls and no clock reads; time comes in through the tick input.
+- The driving logic (`logic.rs`, `logic/`) stays pure: no Windows or Linux API calls and no clock reads; time comes in through the tick input.
 - The control loop (`control/`) runs at 250 Hz: no blocking calls, file I/O or logging per tick.
 - Every user-visible string goes into both `lang/en.rs` and `lang/tr.rs`.
 - Keep dependencies few; discuss a new one before adding it. Network code belongs only to the `updater` feature.
