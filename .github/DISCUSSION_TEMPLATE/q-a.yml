@@ -2,7 +2,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        The **Setup** window and the README's [In-game settings](https://github.com/MouseDrive/MouseDrive#in-game-settings) answer the most common questions.
+        The **Setup** window and the README's [In-game settings](https://github.com/MouseDrive/MouseDrive#in-game-settings) and [Linux](https://github.com/MouseDrive/MouseDrive#linux) sections answer the most common questions.
   - type: textarea
     id: question
     attributes:
@@ -12,11 +12,11 @@ body:
   - type: input
     id: setup
     attributes:
-      label: MouseDrive version and game
-      placeholder: v0.6.0, Assetto Corsa Competizione
+      label: MouseDrive version, operating system and game
+      placeholder: v0.7.0, Ubuntu 24.04, Assetto Corsa Competizione under Proton
   - type: textarea
     id: diagnostics
     attributes:
       label: Diagnostics (optional)
-      description: Click **Copy diagnostics** in the main window and paste the result.
+      description: Open **Connection details** in the bottom line of the main window, click **Copy diagnostics** and paste the result.
       render: text

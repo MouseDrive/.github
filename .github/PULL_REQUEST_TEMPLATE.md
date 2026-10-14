@@ -4,7 +4,7 @@
 
 ## How it was tested
 
-<!-- Game, vJoy version and steps. For interface changes, add a screenshot. -->
+<!-- Operating system, game and steps; on Windows the vJoy version, on Linux the distribution and session (X11 or Wayland). For interface changes, add a screenshot. -->
 
 ## Checklist
 

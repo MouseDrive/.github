@@ -11,30 +11,60 @@ body:
     attributes:
       label: MouseDrive version
       description: Shown in the window title.
-      placeholder: v0.6.0
+      placeholder: v0.7.0
+    validations:
+      required: true
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      options:
+        - Windows 11
+        - Windows 10
+        - Linux
     validations:
       required: true
   - type: input
     id: vjoy
     attributes:
-      label: vJoy version
+      label: vJoy version (Windows)
+      description: Windows only; leave empty on Linux.
       placeholder: 2.2.2.0
-    validations:
-      required: true
-  - type: dropdown
-    id: windows
+  - type: input
+    id: distro
     attributes:
-      label: Windows version
+      label: Distribution (Linux)
+      description: Linux only; name and version.
+      placeholder: Ubuntu 24.04, Fedora 42, Arch, SteamOS, ...
+  - type: dropdown
+    id: session
+    attributes:
+      label: Desktop session (Linux)
+      description: Linux only. If you start MouseDrive with `--x11` or `--wayland`, say so in the steps below.
       options:
-        - Windows 11
-        - Windows 10
-    validations:
-      required: true
+        - Wayland
+        - X11
+  - type: dropdown
+    id: linux-setup
+    attributes:
+      label: Linux setup
+      description: >-
+        Linux only. How were uinput and the udev rules set up? Pick all that apply.
+        If a row in the Setup window is not ✔, name it under *What happened?*.
+      multiple: true
+      options:
+        - .deb or .rpm package
+        - 70-mousedrive.rules from the Setup window or packaging/README.md
+        - Optional keyboard rule (71-mousedrive-keyboard.rules)
+        - NixOS configuration from the README
+        - input group instead of the uaccess rule (no systemd-logind)
+        - Not set up yet
+        - Other (describe in the steps)
   - type: input
     id: game
     attributes:
       label: Game
-      description: Which game shows the problem? Leave empty if it is not game-specific.
+      description: Which game shows the problem? Leave empty if it is not game-specific. On Linux, say whether it runs natively or under Proton/Wine.
       placeholder: ACC, iRacing, LMU, ...
   - type: textarea
     id: what
@@ -57,7 +87,7 @@ body:
     id: diagnostics
     attributes:
       label: Diagnostics
-      description: Click **Copy diagnostics** (bottom right of the main window) and paste the result here.
+      description: Open **Connection details** in the bottom line of the main window, click **Copy diagnostics** and paste the result here.
       render: text
     validations:
       required: true
@@ -66,8 +96,8 @@ body:
     attributes:
       label: Log (optional)
       description: >-
-        Relevant lines from `mousedrive.log`, in `%APPDATA%\MouseDrive\`
-        (or next to the exe in portable mode).
+        Relevant lines from `mousedrive.log`: in `%APPDATA%\MouseDrive\` on Windows,
+        `~/.local/state/mousedrive/` on Linux, or next to the exe in portable mode.
       render: text
   - type: checkboxes
     id: checks
